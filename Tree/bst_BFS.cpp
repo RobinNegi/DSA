@@ -30,7 +30,24 @@ bstNode *insert(bstNode *root, int data)
 
     return root;
 }
-
+// bfs traversal using queue
+void bfs(bstNode *root)
+{
+    if (root == NULL)
+        return;
+    queue<bstNode *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        bstNode *current = q.front();
+        if (current->left != NULL)
+            q.push(current->left);
+        if (current->right != NULL)
+            q.push(current->right);
+        cout << (q.front()->data) << " ";
+        q.pop();
+    }
+}
 // main function
 
 int main()
@@ -41,7 +58,7 @@ int main()
     root = insert(root, 4);
     root = insert(root, 11);
     root = insert(root, 12);
-    cout << "Success";
-
+    cout << "Success inserted ";
+    bfs(root);
     return 0;
 }

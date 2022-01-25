@@ -30,7 +30,15 @@ bstNode *insert(bstNode *root, int data)
 
     return root;
 }
-
+// preorder traversal
+void preorder(bstNode *root)
+{
+    if (root == NULL)
+        return;
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
 // main function
 
 int main()
@@ -38,10 +46,12 @@ int main()
     bstNode *root = NULL;
     root = insert(root, 10);
     root = insert(root, 3);
+    root = insert(root, 2);
     root = insert(root, 4);
-    root = insert(root, 11);
+    root = insert(root, 14);
     root = insert(root, 12);
-    cout << "Success";
-
+    root = insert(root, 11);
+    cout << "Success \n";
+    preorder(root);
     return 0;
 }
