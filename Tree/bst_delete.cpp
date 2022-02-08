@@ -22,7 +22,7 @@ struct Node *Delete(struct Node *root, int data)
         return root;
     else if (data < root->data)
     {
-        cout << "left: " << root->left->data;
+
         root->left = Delete(root->left, data);
     }
     else if (data > root->data)
